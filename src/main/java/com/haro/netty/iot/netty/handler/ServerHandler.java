@@ -55,16 +55,19 @@ public class ServerHandler extends ChannelInboundHandlerAdapter implements IOTVa
 	 */
 		
 		String device =	IOTStaticValue.ipOfDevice.get(ctx.channel().remoteAddress().toString());
-		logger.info("device: "+device +" IP :"+ ctx.channel().remoteAddress()+ " exit");
-		//IOTStaticValue.ipOfChannelHandlerContext.remove(ctx.channel().remoteAddress().toString());
-		IOTStaticValue.deviceOfChannelHandlerContext.remove(device);
-		IOTStaticValue.ipOfDevice.remove(ctx.channel().remoteAddress().toString());
-		IotMachineStatusService iotMachineStatusService =  (IotMachineStatusService) SpringUtil.getApplicationContext().getBean("iotMachineStatusService");
-		IotMachineStatus iotMachineStatus = new IotMachineStatus(); 
-		 // iotMachineStatus.setDeviceInfo(1);
-	    	 iotMachineStatus.setDeviceName(device);
-	    	 iotMachineStatus.setDeviceStatus(2);
-	    	 iotMachineStatusService.updataMachineStatus(iotMachineStatus);
+		//增加没有设备号的机器判断，如果为空，直接退出；
+		if(device != null) {
+			logger.info("device: " + device + " IP :" + ctx.channel().remoteAddress() + " exit");
+			//IOTStaticValue.ipOfChannelHandlerContext.remove(ctx.channel().remoteAddress().toString())
+			IOTStaticValue.deviceOfChannelHandlerContext.remove(device);
+			IOTStaticValue.ipOfDevice.remove(ctx.channel().remoteAddress().toString());
+			IotMachineStatusService iotMachineStatusService = (IotMachineStatusService) SpringUtil.getApplicationContext().getBean("iotMachineStatusService");
+			IotMachineStatus iotMachineStatus = new IotMachineStatus();
+			// iotMachineStatus.setDeviceInfo(1);
+			iotMachineStatus.setDeviceName(device);
+			iotMachineStatus.setDeviceStatus(2);
+			iotMachineStatusService.updataMachineStatus(iotMachineStatus);
+		}
 	}
 	/**
 	 * 客户接入
