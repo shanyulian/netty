@@ -1,12 +1,12 @@
-package java.com.haro.netty.iot.netty.handler;
+package com.haro.netty.iot.netty.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.haor.netty.iot.thread.SaveMachineInfoTask;
-import com.haor.netty.iot.threadpool.ExecutorProcessPool;
+import com.haro.netty.iot.thread.SaveMachineInfoTask;
+import com.haro.netty.iot.threadpool.ExecutorProcessPool;
 import com.haro.netty.iot.staticOfFinal.IOTStaticValue;
 import com.haro.netty.iot.staticOfFinal.IOTValue;
 import com.haro.netty.service.IotMachineStatusService;
