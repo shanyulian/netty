@@ -9,5 +9,6 @@ package com.haro.netty.iot.netty.sendbuf;
 * @date 2017年1月16日 下午3:50:23
  */
 public class ControlLock {
+    private  String  send = "hello world!";
 
 }
