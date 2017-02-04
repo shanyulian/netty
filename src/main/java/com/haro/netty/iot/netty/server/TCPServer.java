@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 
+/**
+ * TCP 服务器
+ */
 @Component
 public class TCPServer {
 	@Autowired

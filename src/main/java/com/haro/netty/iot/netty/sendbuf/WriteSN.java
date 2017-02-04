@@ -9,5 +9,8 @@ package com.haro.netty.iot.netty.sendbuf;
 * @date 2017年1月16日 下午3:47:05
  */
 public class WriteSN {
-
+//写入SN 代码
+    public  static  void  sendSnBuf(byte buy){
+        ;
+    }
 }
